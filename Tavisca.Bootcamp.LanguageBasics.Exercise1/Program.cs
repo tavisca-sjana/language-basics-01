@@ -64,14 +64,14 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
         }
 
         //Function to find the missing corresponding digit from the number
-        public static int FindPositionOfMissingDigit(string num,int temp)
+        public static int FindPositionOfMissingDigit(string numberInStringFormat,int numberInIntegerFormat)
         {
             //Locates the position of ? in string
             int positionOfMissingDigitInString = 0;
             //Keeps track the position corresponding to ? of digit 
             int positionOfMissingDigitInNumber = 0;
-            int rem;
-            foreach(var letter in num)
+            int remainder;
+            foreach(var letter in numberInStringFormat)
             {
                 if(letter == '?')
                 {
@@ -81,18 +81,18 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             }
 
             //Find the position of ? from the end of string
-            positionOfMissingDigitInString = num.Length-1-positionOfMissingDigitInString;
+            positionOfMissingDigitInString = numberInStringFormat.Length-1-positionOfMissingDigitInString;
 
 
-            while(temp>0)
+            while(numberInIntegerFormat>0)
             {
-                rem = temp%10;
+                remainder = numberInIntegerFormat%10;
                 if(positionOfMissingDigitInString == positionOfMissingDigitInNumber)
                 {
-                    return rem;
+                    return remainder;
                 }
                 positionOfMissingDigitInNumber += 1;
-                temp /= 10;
+                numberInIntegerFormat /= 10;
             }
             return -1;
 
